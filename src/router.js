@@ -8,7 +8,7 @@ const routes = [
     component: Main
   },
   {
-    path: "/myPage",
+    path: "/orderPage",
     component: MyPage
   }
 ];
