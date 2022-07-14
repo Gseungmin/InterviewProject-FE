@@ -102,7 +102,7 @@ export default {
     },
 
     mounted() {
-         axios.get('http://localhost:8080/orderPage').then((result)=>{
+         axios.get('http://3.36.79.61/orderPage').then((result)=>{
             for (let i = 0; i < result.data.length; i++) {
                var date = new Date(result.data[i].orderDate)
                result.data[i].orderDate = date

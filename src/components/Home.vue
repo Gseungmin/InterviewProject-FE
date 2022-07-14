@@ -25,7 +25,7 @@
                                  <a class="nav-link" href="/">Home</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="/orderPage">Orders</a>
+                                 <span class="nav-link" @click="toOrder">Orders</span>
                               </li>
                            </ul>
                         </div>
@@ -220,7 +220,7 @@ export default {
       Datepicker
     },
    mounted() {
-         axios.get('http://localhost:8080/').then((result)=>{
+         axios.get('http://3.36.79.61/').then((result)=>{
          for (let i = 0; i < result.data.length; i++) {
             var date = new Date(result.data[i].orderDate)
             this.disabledDates.push(date)
@@ -228,8 +228,12 @@ export default {
    },
 
    methods: {
+      toOrder() {
+         this.$router.push('/orderPage');
+      },
+
       submitForm() {
-         axios.post('http://localhost:8080/',this.form).then(()=>{
+         axios.post('http://3.36.79.61/',this.form).then(()=>{
             this.$router.push('/orderPage');
          }).catch((result)=>{
             this.usernameError = ''
